@@ -1,3 +1,4 @@
+//Algorithm—No (Large) Additional Memory
 void removeDuplicate(char *str)
 {
 	if(str){
@@ -11,5 +12,21 @@ void removeDuplicate(char *str)
 			}
 		}
 		str[tail] = '\0';
+	}
+}
+
+//Algorithm—With Additional Memory of Constant Size 
+void removeDuplicate(char *str)
+{
+	if(str){
+		int tail = 1;
+		int n = strlen(str);
+		int i, j;
+		for(i = 0; i < n; ++i){
+			for(j = 0; j < tail; ++j)
+				if(str[i] == str[j]) break;
+			if(j == tail) str[tail++] = str[i];
+		}
+		str[tail] = 0;
 	}
 }
