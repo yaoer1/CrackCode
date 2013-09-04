@@ -1,0 +1,14 @@
+ListNode *removeDuplicate(ListNode *head)
+{
+	if(head == NULL || head->next == NULL) return head;
+	ListNode *prev = head;
+	while(prev){
+		ListNode *runner = prev;
+		while(runner->next){
+			if(prev->val == runner->next->val) runner->next = runner->next->next;
+			else runner = runner->next;
+		}
+		prev = prev->next;
+	}
+	return head;
+}
