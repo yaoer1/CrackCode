@@ -1,0 +1,10 @@
+bool isUnique(string s)
+{
+	bool char_set[256];
+	memset(char_set,0,sizeof(bool) * 256);
+	for(int i = 0; i < s.length(); i++){
+		if(char_set[s[i]]) return false;
+		char_set[s[i]] = true;
+	}
+	return true;
+}
