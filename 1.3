@@ -1,0 +1,15 @@
+void removeDuplicate(char *str)
+{
+	if(str){
+		bool char_set[256];
+		int tail = 0;
+		memset(char_set,0,256 * sizeof(bool));
+		for(int i = 0; str[i]; i++){
+			if(!char_set[str[i]]){
+				str[tail++] = str[i];
+				char_set[str[i]] = true;
+			}
+		}
+		str[tail] = '\0';
+	}
+}
