@@ -1,0 +1,7 @@
+bool deleteANode(ListNode *p)
+{
+	if(!p || !p->next) return false;
+	p->val = p->next->val;
+	p->next = p->next->next;
+	return true;
+}
