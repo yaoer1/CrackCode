@@ -1,0 +1,17 @@
+TreeNode *leftMost(TreeNode *head)
+{
+	if(!head) return NULL;
+	while(head->left) head = head->left;
+	return head;
+}
+TreeNode *successor(TreeNode *p)
+{
+	if(!p) return p;
+	if(p->right) return leftMost(p->right);
+	TreeNode *u = NULL;
+	while((u = p->parrent) != NULL){
+		if(u->left == p) break;
+		p = u;
+	}
+	return u;
+}
